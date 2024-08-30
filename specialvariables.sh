@@ -8,3 +8,5 @@ echo "give me the number of args used:$#"
 echo "script name:$0"
 #to know the present working Dir
 echo "working dir:$PWD"
+#to know the home directory of current user
+echo "home directory of current user:$HOME"
