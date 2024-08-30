@@ -10,3 +10,5 @@ echo "script name:$0"
 echo "working dir:$PWD"
 #to know the home directory of current user
 echo "home directory of current user:$HOME"
+#to know the process ID of the current process
+echo "process ID of the current process:$$"
