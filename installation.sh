@@ -8,6 +8,7 @@ validate(){
         exit 1
     else
         echo "$2 is"
+    fi
 }
 
 if [ $userid ne 0 ]
