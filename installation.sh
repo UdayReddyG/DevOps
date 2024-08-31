@@ -1,13 +1,17 @@
 #!/bin/bash
+r="\e[31m"
+g="\e[32m"
+y="\e[33m"
+
 
 userid=$(id -u)
 validate(){
     if [ $1 -ne 0 ]
     then
-        echo "$2 not installed"
+        echo -e "$r $2 not installed"
         exit 1
     else
-        echo "$2 is"
+        echo -e "$g $2 is installed"
     fi
 }
 
@@ -20,9 +24,9 @@ dnf list installed git
 
 if [ $? -ne 0 ]
 then 
-    echo "git not installed"
+    echo -e "$r git not installed"
     dnf install git
     validate $? "git"
 else 
-    echo "already installed"
+    echo -e "$g already installed"
 fi
