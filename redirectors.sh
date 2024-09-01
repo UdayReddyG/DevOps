@@ -27,7 +27,7 @@ then
 fi
 for package in $@
 do 
-dnf list installed $package
+dnf list installed $package &>>logfile
 if [ $? -ne 0 ]
 then 
     dnf install $package
