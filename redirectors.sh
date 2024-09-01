@@ -13,26 +13,26 @@ userid=$(id -u)
 validate(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$r $2 not installed" &>>logfile
+        echo -e "$r $2 not installed" &>>$logfile
         exit 1
     else
-        echo -e "$g $2 is installed" &>>logfile
+        echo -e "$g $2 is installed" &>>$logfile
     fi
 }
 
 if [ $userid -ne 0 ]
 then
-    echo "please run with the root privilages" &>>logfile
+    echo "please run with the root privilages" &>>$logfile
     exit 1
 fi
 for package in $@
 do 
-dnf list installed $package &>>logfile
+dnf list installed $package &>>$logfile
 if [ $? -ne 0 ]
 then 
     dnf install $package
     validate $? $package
 else
-    echo -e "$g already installed" &>>logfile
+    echo -e "$g already installed" &>>$logfile
 fi
 done
