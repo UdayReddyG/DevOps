@@ -3,7 +3,7 @@ log_folder="/var/log/shellscript"
 script=$(echo $0 | cut -d "." -f1)
 time=$(date +%Y-%m-%d-%H-%M-%S)
 logfile="$log_folder/$script-$time.log"
-mkdir $log_folder
+mkdir -p $log_folder
 r="\e[31m"
 g="\e[32m"
 y="\e[33m"
