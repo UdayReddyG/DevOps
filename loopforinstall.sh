@@ -23,11 +23,11 @@ fi
 for package in $@
 do 
 dnf list installed $package
-if [ $? -ne 0]
+if [ $? -ne 0 ]
 then 
     dnf install $package
     validate $? $package
 else
-    echo "$g already installed"
+    echo -e "$g already installed"
 fi
 done
