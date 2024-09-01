@@ -16,23 +16,23 @@ validate(){
         echo -e "$r $2 not installed" | tee -a $logfile
         exit 1
     else
-        echo -e "$g $2 is installed" | tee -a $logfile
+        echo -e "$g $2 is installed" | tee -a &>>$logfile
     fi
 }
 
 if [ $userid -ne 0 ]
 then
-    echo "please run with the root privilages" | tee -a $logfile
+    echo "please run with the root privilages" | tee -a &>>$logfile
     exit 1
 fi
 for package in $@
 do 
-dnf list installed $package $logfile
+dnf list installed $package &>>$logfile
 if [ $? -ne 0 ]
 then 
     dnf install $package
     validate $? $package
 else
-    echo -e "$g already installed" | tee -a $logfile
+    echo -e "$g already installed" | tee -a &>>$logfile
 fi
 done
